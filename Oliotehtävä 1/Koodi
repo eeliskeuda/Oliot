@@ -1,0 +1,140 @@
+using System;
+
+namespace Oliotehtävä_1
+{
+    class Kirjasto
+    {
+        //kentät
+        private string nimi;
+        private int sivumaara;
+        private string kirjailija;
+
+        //metodit
+        public string Nimi()
+        {
+            Console.WriteLine("Nimi metodia käytetty.");
+            return nimi;
+        }
+        public int Sivumaara()
+        {
+            Console.WriteLine("Sivumaara metodia käytetty.");
+            return sivumaara;
+        }
+        public string Kirjailija()
+        {
+            Console.WriteLine("Kirjailija metodia käytetty.");
+            return kirjailija;
+        }
+
+        //Oletuskonstruktori
+        public Kirjasto()
+        {
+            nimi = "";
+            sivumaara = 0;
+            kirjailija = "";
+            Console.WriteLine("Luotiin olio oletuskonstruktorilla.");
+        }
+
+        //Ylikuormitettu konstruktori
+        public Kirjasto(string u_nimi, int u_sivumaara, string u_kirjailija)
+        {
+            nimi = u_nimi;
+            sivumaara = u_sivumaara;
+            kirjailija = u_kirjailija;
+            Console.WriteLine("Luotiin olio ylikuormitetulla konstruktorilla.");
+        }
+
+        public string KirjanNimi //Ominaisuusfunktio
+        {
+            set
+            {
+                Console.WriteLine("Setteriä käytetty.");
+                nimi = value;
+            }
+            get
+            {
+                Console.WriteLine("Getteriä käytetty.");
+                return nimi;
+            }
+        }
+
+        public int SivuMaara //Ominaisuusfunktio
+        {
+            set
+            {
+                Console.WriteLine("Setteriä käytetty.");
+                sivumaara = value;
+            }
+            get
+            {
+                Console.WriteLine("Getteriä käytetty.");
+                return sivumaara;
+            }
+        }
+
+        public string KirjailijaNimi //Ominaisuusfunktio
+        {
+            set
+            {
+                Console.WriteLine("Setteriä käytetty.");
+                kirjailija = value;
+            }
+            get
+            {
+                Console.WriteLine("Getteriä käytetty.");
+                return kirjailija;
+            }
+        }
+    }
+
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Oliotehtävä 1 Eelis Pikkupeura");
+            Console.WriteLine("");
+
+            Kirjasto kirja = new Kirjasto();
+            Console.WriteLine("Luodun kirjan nimi on {0}", kirja.KirjanNimi);
+            Console.WriteLine("");
+
+            Kirjasto lehti = new Kirjasto("Aku Ankka", 25, "Walt Disney");
+            Console.WriteLine("Luodun lehden nimi on {0}.", lehti.KirjanNimi);
+            Console.WriteLine("");
+
+            Kirjasto satukirja = new Kirjasto("Iltasatuja", 30, "Satu");
+            Console.WriteLine("Luodun satukirjan sivumäärä on {0}.", satukirja.SivuMaara);
+            Console.WriteLine("");
+
+            Kirjasto tietokirja = new Kirjasto("Tieteen maailma", 50, "Timo");
+            Console.WriteLine("Luodun tietokirjan kirjailija on {0}.", tietokirja.KirjailijaNimi);
+            Console.WriteLine("");
+
+            Kirjasto kirja1 = new Kirjasto();
+            string nimi1;
+            int sivu2;
+            string kirjailija3; 
+
+            Console.Write("Syötä kirjan nimi: ");
+            nimi1 = Console.ReadLine();
+            kirja1.KirjanNimi = nimi1;
+
+            Console.Write("Syötä kirjan sivumäärä: ");
+            sivu2 = int.Parse(Console.ReadLine());
+            kirja1.SivuMaara = sivu2;
+
+            Console.Write("Syötä kirjailijan nimi: ");
+            kirjailija3 = Console.ReadLine();
+            kirja1.KirjailijaNimi = kirjailija3;
+            Console.WriteLine("");
+
+            string apu1 = kirja1.Nimi();
+            int apu2 = kirja1.Sivumaara();
+            string apu3 = kirja1.Kirjailija();
+            Console.WriteLine("");
+
+            Console.WriteLine("Kirjan nimi on {0}, sivumäärä {1}, kirjailija on {2}.", apu1, apu2, apu3);
+        }
+    }
+}
