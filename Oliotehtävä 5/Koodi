@@ -1,0 +1,114 @@
+using System;
+
+namespace Oliotehtävä_5
+{
+    class Opiskelija
+    {
+        // Tyypit
+        private string nimi;
+        private int ika;
+        private int arvosana;
+        public static int laskuri = 0;
+
+        // Metodit
+        public string muutaNimi(string u_nimi)
+        {
+            Console.WriteLine("Nimen muutos metodia käytetty");
+            nimi = u_nimi;
+            return nimi;
+        }
+        public int muutaArvosana(int u_arvosana)
+        {
+            Console.WriteLine("Arvosanan muutos metodia käytetty");
+            arvosana = u_arvosana;
+            return arvosana;
+        }
+        public int vanhene(int vuosi)
+        {
+            Console.WriteLine("Vanhenemis metodia käytetty");
+            Console.WriteLine("Opiskelija vanhenee {0} vuodella", vuosi);
+            for (int i = 0; i < vuosi; i++)
+            {
+                ika++;
+                if (ika == 18)
+                {
+                    Console.WriteLine(ika);
+                    Console.WriteLine("Opiskelija on täysi-ikäinen");
+                }
+                else
+                {
+                    Console.WriteLine(ika);
+                }
+            }
+            return ika;
+        }
+        public void tulostaTiedot()
+        {
+            Console.WriteLine("Nimi: {0} Ikä: {1} Arvosana: {2}", nimi, ika, arvosana);
+        }
+
+        // Oletuskonstruktori
+        public Opiskelija()
+        {
+            nimi = "";
+            ika = 0;
+            arvosana = 0;
+            laskuri++;
+        }
+
+        // Ylikuormitettu konstruktori
+        public Opiskelija(string u_nimi, int u_ika, int u_arvosana)
+        {
+            nimi = u_nimi;
+            ika = u_ika;
+            arvosana = u_arvosana;
+            laskuri++;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Oliotehtävä 5 / Eelis Pikkupeura");
+            Console.WriteLine("");
+
+            // Luodaan 4 opiskelijaa
+            Opiskelija Matti = new Opiskelija("Matti", 15, 5);
+            Opiskelija Pekka = new Opiskelija("Pekka", 18, 2);
+            Opiskelija Liisa = new Opiskelija("Liisa", 16, 3);
+            Opiskelija Pirkko = new Opiskelija("Pirkko", 17, 4);
+
+            // Tulostetaan tiedot
+            Matti.tulostaTiedot();
+            Pekka.tulostaTiedot();
+            Liisa.tulostaTiedot();
+            Pirkko.tulostaTiedot();
+            Console.WriteLine("");
+
+            // Muutetaan arvosanoja
+            Matti.muutaArvosana(4);
+            Pekka.muutaArvosana(3);
+            Liisa.muutaArvosana(4);
+            Pirkko.muutaArvosana(5);
+            Console.WriteLine("");
+
+            // Kasvatetaan ikää
+            Matti.vanhene(10);
+            Pekka.vanhene(5);
+            Liisa.vanhene(8);
+            Pirkko.vanhene(3);
+            Console.WriteLine("");
+
+            // Tulostetaan tiedot
+            Matti.tulostaTiedot();
+            Pekka.tulostaTiedot();
+            Liisa.tulostaTiedot();
+            Pirkko.tulostaTiedot();
+            Console.WriteLine("");
+
+            // Tulostetaan laskurin arvo
+            Console.WriteLine("Olioiden määrä: {0}", Opiskelija.laskuri);
+        }
+    }
+}
