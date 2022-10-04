@@ -1,42 +1,41 @@
-Oliotehtävä 2 Eelis Pikkupeura
+Oliotehtävä 2 / Eelis Pikkupeura
 
-Luotiin olio oletuskonstruktorilla.
+Luotiin olio oletuskonstruktorilla
+Setteriä käytetty
+Setteriä käytetty
+Setteriä käytetty
 Getteriä käytetty
 Getteriä käytetty
 Getteriä käytetty
-Getteriä käytetty
+Tuotteen nimi on omena, määrä 10, paino 0,1kg
 
-Tuotteen nimi on , määrä 0, paino 0kg, onko tuote hyllyssä: False.
+Luotiin olio ylikuormitetulla konstruktorilla
+Getteriä käytetty
+Getteriä käytetty
+Getteriä käytetty
+Tuotteen nimi on laatikko, määrä 20, paino 1kg
+Nimen muutos metodia käytetty
+Määrän muutos metodia käytetty
+Painon muutos metodia käytetty
+Getteriä käytetty
+Getteriä käytetty
+Getteriä käytetty
+Tuotteen nimi on tuoli, määrä 30, paino 3kg
 
-Luotiin olio ylikuormitetulla konstruktorilla.
+Luotiin olio ylikuormitetulla konstruktorilla
 Getteriä käytetty
 Getteriä käytetty
 Getteriä käytetty
+Tuotteen nimi on pallo, määrä 50, paino 0,2kg
+Pois hyllystä metodia käytetty
 Getteriä käytetty
+Getteriä käytetty
+Getteriä käytetty
+Tuotteen nimi on pallo, määrä 0, paino 0,2kg
+Palauta hyllyyn metodia käytetty
+Getteriä käytetty
+Getteriä käytetty
+Getteriä käytetty
+Tuotteen nimi on pallo, määrä 1, paino 0,2kg
 
-Tuotteen nimi on leluauto, määrä 20, paino 2,5kg, onko tuote hyllyssä: True.
-
-Luotiin olio ylikuormitetulla konstruktorilla.
-Getteriä käytetty
-Getteriä käytetty
-Getteriä käytetty
-Getteriä käytetty
-
-Tuotteen nimi on limupullo, määrä 50, paino 0,3kg, onko tuote hyllyssä: True.
-
-Tuotteen uusi nimi: mehupullo
-Setteriä käytetty.
-Määrä metodia käytetty.
-Tuoteen uusi määrä: 0
-Paino metodia käytetty.
-Tuotteen uusi paino: 0,5
-Pois hyllystä metodia käytetty.
-
-Getteriä käytetty
-Getteriä käytetty
-Getteriä käytetty
-Getteriä käytetty
-
-Tuotteen nimi on mehupullo, määrä 0, paino 0,5kg, onko tuote hyllyssä: False.
-
-Tuotteiden lukumäärä: 3
+Olioiden lukumäärä: 3
