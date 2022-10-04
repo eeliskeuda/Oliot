@@ -4,196 +4,117 @@ namespace Oliotehtävä_2
 {
     class Varasto
     {
-        //Kentät
+        // Tyypit
         private string nimi;
         private int maara;
         private double paino;
-        private bool hyllyssa;
         public static int tuoteLaskuri = 0;
 
-        //Metodit
-        public string nimenMuutos()
+        // Metodit
+        public string nimenMuutos(string u_nimi)
         {
-            Console.WriteLine("Nimi metodia käytetty.");
-            string nimenMuutos;
-            Console.Write("Tuotteen uusi nimi: ");
-            nimenMuutos = Console.ReadLine();
-            nimi = nimenMuutos;
+            Console.WriteLine("Nimen muutos metodia käytetty");
+            nimi = u_nimi;
             return nimi;
         }
-        public int maaranMuutos()
+        public int maaranMuutos(int u_maara)
         {
-            Console.WriteLine("Määrä metodia käytetty.");
-            int maaranMuutos;
-            Console.Write("Tuoteen uusi määrä: ");
-            maaranMuutos = int.Parse(Console.ReadLine());
-            maara = maaranMuutos;
+            Console.WriteLine("Määrän muutos metodia käytetty");
+            maara = u_maara;
             return maara;
         }
-        public double painonMuutos()
+        public double painonMuutos(double u_paino)
         {
-            Console.WriteLine("Paino metodia käytetty.");
-            double painonMuutos;
-            Console.Write("Tuotteen uusi paino: ");
-            painonMuutos = double.Parse(Console.ReadLine());
-            paino = painonMuutos;
+            Console.WriteLine("Painon muutos metodia käytetty");
+            paino = u_paino;
             return paino;
         }
-        public bool poisHyllysta()
+        public int poisHyllysta()
         {
-            Console.WriteLine("Pois hyllystä metodia käytetty.");
-            hyllyssa = false;
-            return hyllyssa;
+            Console.WriteLine("Pois hyllystä metodia käytetty");
+            maara = 0;
+            return maara;
         }
-        public bool palautaHyllyn()
+        public int palautaHyllyn()
         {
-            Console.WriteLine("Palauta hyllyyn metodia käytetty.");
-            hyllyssa = true;
-            return hyllyssa;
+            Console.WriteLine("Palauta hyllyyn metodia käytetty");
+            maara++;
+            return maara;
         }
 
-        //Oletuskonstruktori
+        // Oletuskonstruktori
         public Varasto()
         {
-            Console.WriteLine("Luotiin olio oletuskonstruktorilla.");
+            Console.WriteLine("Luotiin olio oletuskonstruktorilla");
             nimi = "";
             maara = 0;
             paino = 0;
-            hyllyssa = false;
             tuoteLaskuri++;
         }
 
         // Ylikuormitettu konstruktori
-        public Varasto(string u_nimi, int u_maara, double u_paino, bool u_hyllyssa)
+        public Varasto(string u_nimi, int u_maara, double u_paino)
         {
-            Console.WriteLine("Luotiin olio ylikuormitetulla konstruktorilla.");
+            Console.WriteLine("Luotiin olio ylikuormitetulla konstruktorilla");
             nimi = u_nimi;
             maara = u_maara;
             paino = u_paino;
-            hyllyssa = u_hyllyssa;
             tuoteLaskuri++;
         }
 
-        // Ominaisuusfunktio
-        public string tuoteNimi
+        // Ominaisuusfunktiot
+        public string Nimi
         {
-            set
-            {
-                Console.WriteLine("Setteriä käytetty.");
-                nimi = value;
-            }
-            get
-            {
-                Console.WriteLine("Getteriä käytetty");
-                return nimi;
-            }
+            set { Console.WriteLine("Setteriä käytetty"); nimi = value; }
+            get { Console.WriteLine("Getteriä käytetty"); return nimi; }
         }
-        public int tuoteMaara
+        public int Maara
         {
-            set
-            {
-                Console.WriteLine("Setteriä käytetty.");
-                maara = value;
-            }
-            get
-            {
-                Console.WriteLine("Getteriä käytetty");
-                return maara;
-            }
+            set { Console.WriteLine("Setteriä käytetty"); maara = value; }
+            get { Console.WriteLine("Getteriä käytetty"); return maara; }
         }
-        public double tuotePaino
+        public double Paino
         {
-            set
-            {
-                Console.WriteLine("Setteriä käytetty.");
-                paino = value;
-            }
-            get
-            {
-                Console.WriteLine("Getteriä käytetty");
-                return paino;
-            }
-        }
-        public bool tuoteHyllyssa
-        {
-            set
-            {
-                Console.WriteLine("Setteriä käytetty.");
-                hyllyssa = value;
-            }
-            get
-            {
-                Console.WriteLine("Getteriä käytetty");
-                return hyllyssa;
-            }
+            set { Console.WriteLine("Setteriä käytetty"); paino = value; }
+            get { Console.WriteLine("Getteriä käytetty"); return paino; }
         }
     }
+
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Oliotehtävä 2 Eelis Pikkupeura");
+            Console.WriteLine("Oliotehtävä 2 / Eelis Pikkupeura");
             Console.WriteLine("");
 
-            //Ensimmäinen instanssi
+            // Ensimmäinen olio
             Varasto tuote1 = new Varasto();
-
-            string apu1 = tuote1.tuoteNimi;
-            int apu2 = tuote1.tuoteMaara;
-            double apu3 = tuote1.tuotePaino;
-            bool apu4 = tuote1.tuoteHyllyssa;
-
-            Console.WriteLine("");
-            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg, onko tuote hyllyssä: {3}.", apu1, apu2, apu3, apu4);
+            tuote1.Nimi = "omena";
+            tuote1.Maara = 10;      // Asetetaan oliolle arvot setterillä
+            tuote1.Paino = 0.1;
+            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg", tuote1.Nimi, tuote1.Maara, tuote1.Paino);
             Console.WriteLine("");
 
-            //Toinen instanssi
-            Varasto tuote2 = new Varasto("leluauto", 20, 2.5, true);
-
-            string apu5 = tuote2.tuoteNimi;
-            int apu6 = tuote2.tuoteMaara;
-            double apu7 = tuote2.tuotePaino;
-            bool apu8 = tuote2.tuoteHyllyssa;
-
-            Console.WriteLine("");
-            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg, onko tuote hyllyssä: {3}.", apu5, apu6, apu7, apu8);
+            // Toinen olio
+            Varasto tuote2 = new Varasto("laatikko", 20, 1);
+            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg", tuote2.Nimi, tuote2.Maara, tuote2.Paino);
+            tuote2.nimenMuutos("tuoli");
+            tuote2.maaranMuutos(30);        // Muutetaan olion arvoja metodeilla
+            tuote2.painonMuutos(3);
+            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg", tuote2.Nimi, tuote2.Maara, tuote2.Paino);
             Console.WriteLine("");
 
-            //Kolmas instanssi
-            Varasto tuote3 = new Varasto("limupullo", 50, 0.3, true);
-
-            string apu9 = tuote3.tuoteNimi;
-            int apu10 = tuote3.tuoteMaara;
-            double apu11 = tuote3.tuotePaino;
-            bool apu12 = tuote3.tuoteHyllyssa;
-
-            Console.WriteLine("");
-            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg, onko tuote hyllyssä: {3}.", apu9, apu10, apu11, apu12);
+            // Kolmas olio
+            Varasto tuote3 = new Varasto("pallo", 50, 0.2);
+            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg", tuote3.Nimi, tuote3.Maara, tuote3.Paino);
+            tuote3.poisHyllysta(); // Poistetaan tuote hyllystä
+            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg", tuote3.Nimi, tuote3.Maara, tuote3.Paino);
+            tuote3.palautaHyllyn(); // Palautetaan tuote hyllyyn
+            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg", tuote3.Nimi, tuote3.Maara, tuote3.Paino);
             Console.WriteLine("");
 
-            //Muokataan tuotetta setterillä ja metodeilla
-            string setNimi;
-            Console.Write("Tuotteen uusi nimi: ");
-            setNimi = Console.ReadLine();
-            tuote3.tuoteNimi = setNimi;
-
-            tuote3.maaranMuutos();
-            tuote3.painonMuutos();
-            tuote3.poisHyllysta();
-            Console.WriteLine("");
-
-            apu9 = tuote3.tuoteNimi;
-            apu10 = tuote3.tuoteMaara;
-            apu11 = tuote3.tuotePaino;
-            apu12 = tuote3.tuoteHyllyssa;
-
-            Console.WriteLine("");
-            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg, onko tuote hyllyssä: {3}.", apu9, apu10, apu11, apu12);
-            Console.WriteLine("");
-
-            //Tulostetaan laskurin arvo
-            Console.WriteLine("Tuotteiden lukumäärä: {0}", Varasto.tuoteLaskuri);
-
+            // Tulostetaan laskurin arvo
+            Console.WriteLine("Olioiden lukumäärä: {0}", Varasto.tuoteLaskuri);
         }
     }
 }
