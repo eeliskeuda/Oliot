@@ -1,0 +1,124 @@
+using System;
+
+namespace Oliotehtävä_3
+{
+    class Varasto
+    {
+        public string nimi;
+        public static int tuoteLaskuri = 0;
+    }
+
+    class Tuotetiedot : Varasto
+    {
+        // Tyypit
+        private int maara;
+        private double paino;
+
+        // Metodit
+        public string nimenMuutos(string u_nimi)
+        {
+            Console.WriteLine("Nimen muutos metodia käytetty");
+            nimi = u_nimi;
+            return nimi;
+        }
+        public int maaranMuutos(int u_maara)
+        {
+            Console.WriteLine("Määrän muutos metodia käytetty");
+            maara = u_maara;
+            return maara;
+        }
+        public double painonMuutos(double u_paino)
+        {
+            Console.WriteLine("Painon muutos metodia käytetty");
+            paino = u_paino;
+            return paino;
+        }
+        public int poisHyllysta()
+        {
+            Console.WriteLine("Pois hyllystä metodia käytetty");
+            maara = 0;
+            return maara;
+        }
+        public int palautaHyllyn()
+        {
+            Console.WriteLine("Palauta hyllyyn metodia käytetty");
+            maara++;
+            return maara;
+        }
+
+        // Oletuskonstruktori
+        public Tuotetiedot()
+        {
+            Console.WriteLine("Luotiin olio oletuskonstruktorilla");
+            nimi = "";
+            maara = 0;
+            paino = 0;
+            tuoteLaskuri++;
+        }
+
+        // Ylikuormitettu konstruktori
+        public Tuotetiedot(string u_nimi, int u_maara, double u_paino)
+        {
+            Console.WriteLine("Luotiin olio ylikuormitetulla konstruktorilla");
+            nimi = u_nimi;
+            maara = u_maara;
+            paino = u_paino;
+            tuoteLaskuri++;
+        }
+
+        // Ominaisuusfunktiot
+        public string Nimi
+        {
+            set { Console.WriteLine("Setteriä käytetty"); nimi = value; }
+            get { Console.WriteLine("Getteriä käytetty"); return nimi; }
+        }
+        public int Maara
+        {
+            set { Console.WriteLine("Setteriä käytetty"); maara = value; }
+            get { Console.WriteLine("Getteriä käytetty"); return maara; }
+        }
+        public double Paino
+        {
+            set { Console.WriteLine("Setteriä käytetty"); paino = value; }
+            get { Console.WriteLine("Getteriä käytetty"); return paino; }
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Oliotehtävä 3 / Eelis Pikkupeura");
+            Console.WriteLine("");
+
+            // Ensimmäinen olio
+            Tuotetiedot tuote1 = new Tuotetiedot();
+            tuote1.Nimi = "omena";
+            tuote1.Maara = 10;      // Asetetaan oliolle arvot setterillä
+            tuote1.Paino = 0.1;
+            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg", tuote1.Nimi, tuote1.Maara, tuote1.Paino);
+            Console.WriteLine("");
+
+            // Toinen olio
+            Tuotetiedot tuote2 = new Tuotetiedot("laatikko", 20, 1);
+            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg", tuote2.Nimi, tuote2.Maara, tuote2.Paino);
+            tuote2.nimenMuutos("tuoli");
+            tuote2.maaranMuutos(30);        // Muutetaan olion arvoja metodeilla
+            tuote2.painonMuutos(3);
+            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg", tuote2.Nimi, tuote2.Maara, tuote2.Paino);
+            Console.WriteLine("");
+
+            // Kolmas olio
+            Tuotetiedot tuote3 = new Tuotetiedot("pallo", 50, 0.2);
+            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg", tuote3.Nimi, tuote3.Maara, tuote3.Paino);
+            tuote3.poisHyllysta(); // Poistetaan tuote hyllystä
+            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg", tuote3.Nimi, tuote3.Maara, tuote3.Paino);
+            tuote3.palautaHyllyn(); // Palautetaan tuote hyllyyn
+            Console.WriteLine("Tuotteen nimi on {0}, määrä {1}, paino {2}kg", tuote3.Nimi, tuote3.Maara, tuote3.Paino);
+            Console.WriteLine("");
+
+            // Tulostetaan laskurin arvo
+            Console.WriteLine("Olioiden lukumäärä: {0}", Tuotetiedot.tuoteLaskuri);
+        }
+    }
+}
