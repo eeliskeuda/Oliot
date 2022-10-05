@@ -1,0 +1,36 @@
+Oliotehtävä 6 / Eelis Pikkupeura
+
+Luotiin olio oletuskonstruktorilla
+Setteriä käytetty
+Setteriä käytetty
+Setteriä käytetty
+Getteriä käytetty
+Getteriä käytetty
+Getteriä käytetty
+Laivan nopeus: 50, matkustajat: 2000, paino: 300000
+
+Luotiin olio ylikuormitetulla konstruktorilla
+Getteriä käytetty
+Getteriä käytetty
+Getteriä käytetty
+Laivan nopeus: 100, matkustajat: 5, paino: 15000
+muutaNopeus metodia käytetty
+muutaPaino metodia käytetty
+Getteriä käytetty
+Getteriä käytetty
+Getteriä käytetty
+Laivan nopeus: 150, matkustajat: 5, paino: 10000
+
+Luotiin olio ylikuormitetulla konstruktorilla
+Getteriä käytetty
+Getteriä käytetty
+Getteriä käytetty
+Lentokoneen nopeus: 300, matkustajat: 125, pituus: 40
+muutaMatkustajat metodia käytetty
+muutaPituus metodia käytetty
+Getteriä käytetty
+Getteriä käytetty
+Getteriä käytetty
+Lentokoneen nopeus: 300, matkustajat: 200, pituus: 50
+
+Olioiden määrä: 3
