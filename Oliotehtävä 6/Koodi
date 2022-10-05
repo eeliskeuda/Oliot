@@ -1,0 +1,158 @@
+using System;
+
+namespace Oliotehtävä_6
+{
+    class Kulkuneuvo
+    {
+        // Tyypit
+        private protected int nopeus;
+        private protected int matkustajat;
+        public static int laskuri = 0;
+
+        // Metodit
+        public int muutaNopeus(int u_nopeus)
+        {
+            Console.WriteLine("muutaNopeus metodia käytetty");
+            nopeus = u_nopeus;
+            return nopeus;
+        }
+
+        public int muutaMatkustajat(int u_matkustajat)
+        {
+            Console.WriteLine("muutaMatkustajat metodia käytetty");
+            matkustajat = u_matkustajat;
+            return matkustajat;
+        }
+
+        // Ominaisuusfunktiot
+        public int Nopeus
+        {
+            set { Console.WriteLine("Setteriä käytetty"); nopeus = value; }
+            get { Console.WriteLine("Getteriä käytetty"); return nopeus; }
+        }
+
+        public int Matkustajat
+        {
+            set { Console.WriteLine("Setteriä käytetty"); matkustajat = value; }
+            get { Console.WriteLine("Getteriä käytetty"); return matkustajat; }
+        }
+    }
+
+    class Laiva : Kulkuneuvo
+    {
+        // Tyyppi
+        private int paino;
+
+        // Metodi
+        public int muutaPaino(int u_paino)
+        {
+            Console.WriteLine("muutaPaino metodia käytetty");
+            paino = u_paino;
+            return paino;
+        }
+
+        // Oletuskonstruktori
+        public Laiva()
+        {
+            Console.WriteLine("Luotiin olio oletuskonstruktorilla");
+            nopeus = 0;
+            matkustajat = 0;
+            paino = 0;
+            laskuri++;
+        }
+
+        // Ylikuormitettu konstruktori
+        public Laiva(int u_nopeus, int u_matkustajat, int u_paino)
+        {
+            Console.WriteLine("Luotiin olio ylikuormitetulla konstruktorilla");
+            nopeus = u_nopeus;
+            matkustajat = u_matkustajat;
+            paino = u_paino;
+            laskuri++;
+        }
+
+        // Ominaisuusfunktio
+        public int Paino
+        {
+            set { Console.WriteLine("Setteriä käytetty"); paino = value; }
+            get { Console.WriteLine("Getteriä käytetty"); return paino; }
+        }
+    }
+
+    class Lentokone : Kulkuneuvo
+    {
+        // Tyyppi
+        private int pituus;
+
+        // Metodi
+        public int muutaPituus(int u_pituus)
+        {
+            Console.WriteLine("muutaPituus metodia käytetty");
+            pituus = u_pituus;
+            return pituus;
+        }
+
+        // Oletuskonstruktori
+        public Lentokone()
+        {
+            Console.WriteLine("Luotiin olio oletuskonstruktorilla");
+            nopeus = 0;
+            matkustajat = 0;
+            pituus = 0;
+            laskuri++;
+        }
+
+        // Ylikuormitettu konstruktori
+        public Lentokone(int u_nopeus, int u_matkustajat, int u_pituus)
+        {
+            Console.WriteLine("Luotiin olio ylikuormitetulla konstruktorilla");
+            nopeus = u_nopeus;
+            matkustajat = u_matkustajat;
+            pituus = u_pituus;
+            laskuri++;
+        }
+
+        // Ominaisuusfunktio
+        public int Pituus
+        {
+            set { Console.WriteLine("Setteriä käytetty"); pituus = value; }
+            get { Console.WriteLine("Getteriä käytetty"); return pituus; }
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Oliotehtävä 6 / Eelis Pikkupeura");
+            Console.WriteLine("");
+
+            // Olio 1
+            Laiva laiva1 = new Laiva();
+            laiva1.Nopeus = 50;
+            laiva1.Matkustajat = 2000;  // Asetetaan oliolle arvot setterillä
+            laiva1.Paino = 300000;
+            Console.WriteLine("Laivan nopeus: {0}, matkustajat: {1}, paino: {2}", laiva1.Nopeus, laiva1.Matkustajat, laiva1.Paino);
+            Console.WriteLine("");
+
+            // Olio 2
+            Laiva laiva2 = new Laiva(100, 5, 15000);
+            Console.WriteLine("Laivan nopeus: {0}, matkustajat: {1}, paino: {2}", laiva2.Nopeus, laiva2.Matkustajat, laiva2.Paino);
+            laiva2.muutaNopeus(150);    // Muutetaan laivan nopeutta ja painoa metodeilla
+            laiva2.muutaPaino(10000);
+            Console.WriteLine("Laivan nopeus: {0}, matkustajat: {1}, paino: {2}", laiva2.Nopeus, laiva2.Matkustajat, laiva2.Paino);
+            Console.WriteLine("");
+
+            // Olio 3
+            Lentokone lentokone = new Lentokone(300, 125, 40);
+            Console.WriteLine("Lentokoneen nopeus: {0}, matkustajat: {1}, pituus: {2}", lentokone.Nopeus, lentokone.Matkustajat, lentokone.Pituus);
+            lentokone.muutaMatkustajat(200);    // Muutetaan lentokoneen matkustajamäärää ja pituutta metodeilla
+            lentokone.muutaPituus(50);
+            Console.WriteLine("Lentokoneen nopeus: {0}, matkustajat: {1}, pituus: {2}", lentokone.Nopeus, lentokone.Matkustajat, lentokone.Pituus);
+            Console.WriteLine("");
+
+            // Tulostetaan laskurin arvo
+            Console.WriteLine("Olioiden määrä: {0}", Kulkuneuvo.laskuri);
+        }
+    }
+}
